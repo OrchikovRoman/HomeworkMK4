@@ -1,0 +1,77 @@
+CREATE DATABASE HomeWork1MK4
+
+Create Table DEPARTMENT (Id int NOT NULL PRIMARY KEY, NameDepartment Varchar(100));
+
+Create Table EMPLOYEE (Id int NOT NULL PRIMARY KEY, 
+Department_Id int NOT NULL,
+Chief_Id int, 
+NameEmp Varchar(100) NOT NULL, 
+Salary int,
+CONSTRAINT DEPARTMENT_To_EMPLOYEE_Id FOREIGN KEY(Department_Id) REFERENCES DEPARTMENT(Id) ON DELETE NO ACTION ON UPDATE NO ACTION,
+CONSTRAINT EMPLOYEE_Id FOREIGN KEY(Chief_Id) REFERENCES EMPLOYEE(Id) ON DELETE NO ACTION ON UPDATE NO ACTION); 
+
+
+
+Insert into DEPARTMENT(Id, NameDepartment)Values(1,'A'),(2,'B'),(3,'C');
+Insert into EMPLOYEE(Id, Department_Id, Chief_Id, NameEmp, Salary)Values
+(1, 1, NULL, 'Roman', 1000),
+(2, 2, NULL, 'Eugene', 900),
+(3, 1, 1, 'Jack', 500),
+(4, 2, 1, 'Igor', 400),
+(5, 3, NULL, 'igor', 800),
+(6, 3, 1, 'Daria', 400),
+(7, 3, 1, 'Lina', 1100),
+(8, 1, 2, 'Petr', 100);
+
+
+--1)
+SELECT DEPARTMENT.NameDepartment, COUNT(EMPLOYEE.Department_Id) AS Counter
+FROM DEPARTMENT, EMPLOYEE
+WHERE DEPARTMENT.Id=EMPLOYEE.Department_Id
+GROUP BY DEPARTMENT.NameDepartment
+ORDER BY DEPARTMENT.NameDepartment DESC;
+
+--2)
+SELECT Tabl1.*
+FROM EMPLOYEE Tabl1, EMPLOYEE Tabl2
+WHERE Tabl2.Id=Tabl1.Chief_Id AND Tabl1.Salary>Tabl2.Salary;
+
+--3)
+SELECT DEPARTMENT.NameDepartment
+FROM DEPARTMENT, EMPLOYEE
+WHERE DEPARTMENT.Id=EMPLOYEE.Department_Id
+GROUP BY DEPARTMENT.NameDepartment
+HAVING COUNT(EMPLOYEE.Department_Id)<=3
+ORDER BY DEPARTMENT.NameDepartment;
+
+--4)
+SELECT EMPLOYEE.Department_Id, MAX(EMPLOYEE.Salary) AS Salary
+FROM EMPLOYEE
+GROUP BY EMPLOYEE.Department_Id;
+SELECT * FROM EMPLOYEE;
+
+--5)
+WITH Max_Sum_Salary AS
+(SELECT Department_Id, SUM(Salary) Salary
+FROM EMPLOYEE
+GROUP BY Department_Id)
+SELECT Department_Id
+FROM Max_Sum_Salary
+WHERE Max_Sum_Salary.Salary = (SELECT MAX(Salary) FROM Max_Sum_Salary);
+
+--6)
+SELECT Tabl1.*
+FROM EMPLOYEE Tabl1
+LEFT JOIN EMPLOYEE Tabl2 ON 
+(Tabl2.Id=Tabl1.Chief_Id AND Tabl2.Department_Id=Tabl1.Department_Id)
+WHERE Tabl1.Chief_Id IS NULL;
+SELECT * FROM EMPLOYEE;
+
+--7)
+WITH MaxValue AS
+(SELECT TOP(2) Tabl2.Salary 
+FROM EMPLOYEE Tabl2 GROUP BY Tabl2.Salary ORDER BY Tabl2.Salary DESC)
+SELECT TOP(1) MaxValue.Salary AS Salary
+FROM MaxValue
+ORDER BY MaxValue.Salary;
+SELECT * FROM EMPLOYEE;

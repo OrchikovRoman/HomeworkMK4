@@ -1,0 +1,30 @@
+--1)
+USE HomeWork1MK4
+go
+CREATE VIEW vwDenormalisation
+AS
+SELECT 
+	DEPARTMENT.NameDepartment,
+	EMPLOYEE.Department_Id,
+	EMPLOYEE.Id,
+	EMPLOYEE.Chief_Id,
+	EMPLOYEE.NameEmp,
+	EMPLOYEE.Salary
+FROM EMPLOYEE
+JOIN DEPARTMENT ON EMPLOYEE.Department_Id=DEPARTMENT.Id;
+
+Select * FRom vwDenormalisation;
+
+--2)
+CREATE PROCEDURE FineEmployee (@Value int = 100) AS BEGIN
+SELECT vwDenormalisation.Salary FROM vwDenormalisation
+WHERE Salary > 100
+UPDATE vwDenormalisation SET Salary -= @Value;
+END;
+
+EXECUTE FineEmployee @Value = 100
+
+
+
+--3)
+CREATE NONCLUSTERED INDEX indexer ON  EMPLOYEE(Department_Id);

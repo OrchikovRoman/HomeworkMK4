@@ -1,0 +1,8 @@
+C:\Users\Roman\source\repos\HomeWork3MK4\ClassLibrary2\obj\Debug\BuisnessLogicLayer.csprojAssemblyReference.cache
+C:\Users\Roman\source\repos\HomeWork3MK4\ClassLibrary2\bin\Debug\ClassLibrary2.dll
+C:\Users\Roman\source\repos\HomeWork3MK4\ClassLibrary2\bin\Debug\ClassLibrary2.pdb
+C:\Users\Roman\source\repos\HomeWork3MK4\ClassLibrary2\bin\Debug\ClassLibrary3.dll
+C:\Users\Roman\source\repos\HomeWork3MK4\ClassLibrary2\bin\Debug\ClassLibrary3.pdb
+C:\Users\Roman\source\repos\HomeWork3MK4\ClassLibrary2\obj\Debug\BuisnessLogicLayer.csproj.CopyComplete
+C:\Users\Roman\source\repos\HomeWork3MK4\ClassLibrary2\obj\Debug\ClassLibrary2.dll
+C:\Users\Roman\source\repos\HomeWork3MK4\ClassLibrary2\obj\Debug\ClassLibrary2.pdb

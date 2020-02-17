@@ -1,0 +1,5 @@
+C:\Users\Roman\source\repos\HomeWork3MK4\ClassLibrary3\bin\Debug\ClassLibrary3.dll
+C:\Users\Roman\source\repos\HomeWork3MK4\ClassLibrary3\bin\Debug\ClassLibrary3.pdb
+C:\Users\Roman\source\repos\HomeWork3MK4\ClassLibrary3\obj\Debug\ClassLibrary3.dll
+C:\Users\Roman\source\repos\HomeWork3MK4\ClassLibrary3\obj\Debug\ClassLibrary3.pdb
+C:\Users\Roman\source\repos\HomeWork3MK4\ClassLibrary3\obj\Debug\DAL.csprojAssemblyReference.cache

@@ -13,17 +13,22 @@ namespace PresentationLayer.Controllers
     public class CarController : ICarController
     {
         private ICarService service;
+        private IDetailService detService;
 
         public CarController()
         {
             service = new CarService();
+            detService = new DetailService();
         }
 
         public IEnumerable<CarViewModel> GetСars()
         {
-            var carsViewModels = from car in service.GetСars()
-                                 select new CarViewModel() { Id = car.Id, Name = car.Name };
-            return carsViewModels;
+            var detailControllers = from detail in detService.GetDetails()
+                                    select new DetailViewModel() { Id = detail.Id, CarID = detail.CarID, Name = detail.Name };
+            var carViewModels = from car in service.GetСars()
+                                select new CarViewModel() { Id = car.Id, Name = car.Name, Details = detailControllers };
+                                 
+            return carViewModels;
         }
     }
 }

@@ -10,5 +10,6 @@ namespace BuisnessLogicLayer.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public IEnumerable<DetailModel> Details { get; set; }
     }
 }

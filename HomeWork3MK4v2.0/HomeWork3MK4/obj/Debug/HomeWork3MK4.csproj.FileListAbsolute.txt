@@ -1,0 +1,13 @@
+C:\Users\Roman\source\repos\HomeWork3MK4\HomeWork3MK4\obj\Debug\HomeWork3MK4.csprojAssemblyReference.cache
+C:\Users\Roman\source\repos\HomeWork3MK4\HomeWork3MK4\bin\Debug\HomeWork3MK4.exe.config
+C:\Users\Roman\source\repos\HomeWork3MK4\HomeWork3MK4\bin\Debug\HomeWork3MK4.exe
+C:\Users\Roman\source\repos\HomeWork3MK4\HomeWork3MK4\bin\Debug\HomeWork3MK4.pdb
+C:\Users\Roman\source\repos\HomeWork3MK4\HomeWork3MK4\bin\Debug\ClassLibrary1.dll
+C:\Users\Roman\source\repos\HomeWork3MK4\HomeWork3MK4\bin\Debug\ClassLibrary2.dll
+C:\Users\Roman\source\repos\HomeWork3MK4\HomeWork3MK4\bin\Debug\ClassLibrary3.dll
+C:\Users\Roman\source\repos\HomeWork3MK4\HomeWork3MK4\bin\Debug\ClassLibrary1.pdb
+C:\Users\Roman\source\repos\HomeWork3MK4\HomeWork3MK4\bin\Debug\ClassLibrary2.pdb
+C:\Users\Roman\source\repos\HomeWork3MK4\HomeWork3MK4\bin\Debug\ClassLibrary3.pdb
+C:\Users\Roman\source\repos\HomeWork3MK4\HomeWork3MK4\obj\Debug\HomeWork3MK4.csproj.CopyComplete
+C:\Users\Roman\source\repos\HomeWork3MK4\HomeWork3MK4\obj\Debug\HomeWork3MK4.exe
+C:\Users\Roman\source\repos\HomeWork3MK4\HomeWork3MK4\obj\Debug\HomeWork3MK4.pdb

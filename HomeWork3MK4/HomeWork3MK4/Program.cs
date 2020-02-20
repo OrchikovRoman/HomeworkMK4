@@ -12,11 +12,11 @@ namespace HomeWork3MK4
     {
         static void Main(string[] args)
         {
-            ICarsControllers carsControllers = new CarsControllers();
-            IDetailControllers detailControllers = new DetailControllers();
+            ICarController carsControllers = new CarController();
+            IDetailController detailControllers = new DetailController();
 
-            var result = from resC in carsControllers.GetСarsModelsView()
-                         join resD in detailControllers.GetDetailViewModels()
+            var result = from resC in carsControllers.GetСars()
+                         join resD in detailControllers.GetDetails()
                          on resC.Id equals resD.Cars_Id
                          select new { AutomobileName = resC.NameCar, CarID = resC.Id, Detail = resD.NameDetail };
             foreach (var obj in result)

@@ -41,12 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CarsControllers.cs" />
-    <Compile Include="CarViewModel.cs" />
-    <Compile Include="DetailControllers.cs" />
-    <Compile Include="DetailViewModel.cs" />
-    <Compile Include="ICarsControllers.cs" />
-    <Compile Include="IDetailControllers.cs" />
+    <Compile Include="Controllers\CarController.cs" />
+    <Compile Include="Models\CarViewModel.cs" />
+    <Compile Include="Controllers\DetailController.cs" />
+    <Compile Include="Models\DetailViewModel.cs" />
+    <Compile Include="Interfaces\ICarController.cs" />
+    <Compile Include="Interfaces\IDetailController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -55,5 +55,6 @@
       <Name>BuisnessLogicLayer</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

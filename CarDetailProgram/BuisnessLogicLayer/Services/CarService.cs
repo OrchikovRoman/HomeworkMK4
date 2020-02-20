@@ -23,7 +23,7 @@ namespace BuisnessLogicLayer.Services
         public IEnumerable<CarModel> GetСars()
         {
             var carsModels = from car in repository.GetCars()
-                             select new CarModel() { Id = car.Id, NameCar = car.NameCar };
+                             select new CarModel() { Id = car.Id, Name = car.Name };
             return carsModels;
         }
     }

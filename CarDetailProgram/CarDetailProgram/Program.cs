@@ -18,8 +18,8 @@ namespace CarDetailProgram
 
             var result = from resC in carsControllers.GetСars()
                          join resD in detailControllers.GetDetails()
-                         on resC.Id equals resD.Cars_Id
-                         select new { AutomobileName = resC.NameCar, CarID = resC.Id, Detail = resD.NameDetail };
+                         on resC.Id equals resD.CarID
+                         select new { AutomobileName = resC.Name, CarID = resC.Id, Detail = resD.Name };
             foreach (var obj in result)
             {
                 Console.WriteLine(obj);

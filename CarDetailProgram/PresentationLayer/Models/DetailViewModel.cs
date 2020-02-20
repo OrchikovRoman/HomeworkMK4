@@ -9,7 +9,7 @@ namespace PresentationLayer.Models
     public class DetailViewModel
     {
         public int Id { get; set; }
-        public int Cars_Id { get; set; }
-        public string NameDetail { get; set; }
+        public int CarID { get; set; }
+        public string Name { get; set; }
     }
 }

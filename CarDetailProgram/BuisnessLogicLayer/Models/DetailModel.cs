@@ -10,6 +10,6 @@ namespace BuisnessLogicLayer.Models
     {
         public int Id { get; set; }
         public int CarID { get; set; }
-        public string NameDetail { get; set; }
+        public string Name { get; set; }
     }
 }

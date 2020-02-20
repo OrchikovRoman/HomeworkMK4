@@ -22,7 +22,7 @@ namespace BuisnessLogicLayer.Services
         public IEnumerable<DetailModel> GetDetails()
         {
             var detailModels = from det in repository.GetDetails()
-                               select new DetailModel() { Id = det.Id, CarID = det.CarID, NameDetail = det.NameDetail };
+                               select new DetailModel() { Id = det.Id, CarID = det.CarID, Name = det.Name };
             return detailModels;
         }
     }

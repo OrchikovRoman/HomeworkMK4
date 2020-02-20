@@ -21,7 +21,7 @@ namespace PresentationLayer.Controllers
         public IEnumerable<DetailViewModel> GetDetails()
         {
             var detailViewModels = from det in service.GetDetails()
-                                   select new DetailViewModel() { Id = det.Id, Cars_Id = det.CarID, NameDetail = det.NameDetail };
+                                   select new DetailViewModel() { Id = det.Id, CarID = det.CarID, Name = det.Name };
             return detailViewModels;
         }
     }

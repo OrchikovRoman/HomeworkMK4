@@ -35,7 +35,7 @@ namespace DAL.Repositories
                         {
                             Id = (int)reader["Id"],
                             CarID = (int)reader["CarID"],
-                            NameDetail = (string)reader["Name"]
+                            Name = (string)reader["Name"]
                         });
                     }
                 }

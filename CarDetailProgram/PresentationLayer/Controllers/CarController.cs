@@ -22,7 +22,7 @@ namespace PresentationLayer.Controllers
         public IEnumerable<CarViewModel> GetСars()
         {
             var carsViewModels = from car in service.GetСars()
-                                 select new CarViewModel() { Id = car.Id, NameCar = car.NameCar };
+                                 select new CarViewModel() { Id = car.Id, Name = car.Name };
             return carsViewModels;
         }
     }

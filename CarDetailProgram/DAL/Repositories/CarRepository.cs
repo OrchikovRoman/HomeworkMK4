@@ -34,7 +34,7 @@ namespace DAL.Repositories
                         result.Add(new Car
                         {
                             Id = (int)reader["Id"],
-                            NameCar = (string)reader["Name"]
+                            Name = (string)reader["Name"]
                         });
                     }
                 }

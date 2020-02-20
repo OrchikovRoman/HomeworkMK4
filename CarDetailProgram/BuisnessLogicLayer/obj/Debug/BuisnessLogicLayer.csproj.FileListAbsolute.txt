@@ -1,0 +1,8 @@
+C:\Users\Roman\source\repos\CarDetailProgram\BuisnessLogicLayer\obj\Debug\BuisnessLogicLayer.csprojAssemblyReference.cache
+C:\Users\Roman\source\repos\CarDetailProgram\BuisnessLogicLayer\bin\Debug\BuisnessLogicLayer.dll
+C:\Users\Roman\source\repos\CarDetailProgram\BuisnessLogicLayer\bin\Debug\BuisnessLogicLayer.pdb
+C:\Users\Roman\source\repos\CarDetailProgram\BuisnessLogicLayer\bin\Debug\DAL.dll
+C:\Users\Roman\source\repos\CarDetailProgram\BuisnessLogicLayer\bin\Debug\DAL.pdb
+C:\Users\Roman\source\repos\CarDetailProgram\BuisnessLogicLayer\obj\Debug\BuisnessLogicLayer.csproj.CopyComplete
+C:\Users\Roman\source\repos\CarDetailProgram\BuisnessLogicLayer\obj\Debug\BuisnessLogicLayer.dll
+C:\Users\Roman\source\repos\CarDetailProgram\BuisnessLogicLayer\obj\Debug\BuisnessLogicLayer.pdb

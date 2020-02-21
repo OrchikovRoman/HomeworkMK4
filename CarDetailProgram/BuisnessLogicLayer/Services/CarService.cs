@@ -26,7 +26,7 @@ namespace BuisnessLogicLayer.Services
             var detailModels = from detail in detRepository.GetDetails()
                                select new DetailModel() { Id = detail.Id, CarID = detail.CarID, Name = detail.Name };
             var carModels = from car in repository.GetCars()
-                             select new CarModel() { Id = car.Id, Name = car.Name, Details = detailModels };
+                            select new CarModel() { Id = car.Id, Name = car.Name, Details = detailModels.Where(x=>x.CarID==car.Id)};
             return carModels;
         }
     }

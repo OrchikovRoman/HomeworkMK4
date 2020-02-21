@@ -13,17 +13,17 @@ namespace CarDetailProgram
     {
         static void Main(string[] args)
         {
-            ICarController carsControllers = new CarController();
-            IDetailController detailControllers = new DetailController();
+            ICarController carController = new CarController();
 
-            var result = from resC in carsControllers.GetСars()
-                         join resD in detailControllers.GetDetails()
-                         on resC.Id equals resD.CarID
-                         select new { AutomobileName = resC.Name, CarID = resC.Id, Detail = resD.Name };
-            foreach (var obj in result)
+            foreach (var res in carController.GetСars())
             {
-                Console.WriteLine(obj);
+                Console.WriteLine($"Name:{res.Name}, Id:{res.Id}");
+                foreach (var item in res.Details)
+                {
+                    Console.WriteLine($"{item.Id} {item.Name} {item.CarID}");
+                }
             }
+
             Console.ReadKey();
         }
     }

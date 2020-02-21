@@ -23,10 +23,15 @@ namespace PresentationLayer.Controllers
 
         public IEnumerable<CarViewModel> GetСars()
         {
-            var detailControllers = from detail in detService.GetDetails()
-                                    select new DetailViewModel() { Id = detail.Id, CarID = detail.CarID, Name = detail.Name };
             var carViewModels = from car in service.GetСars()
-                                select new CarViewModel() { Id = car.Id, Name = car.Name, Details = detailControllers };
+                                select new CarViewModel()
+                                {
+                                    Id = car.Id,
+                                    Name = car.Name,
+                                    Details = from res in car.Details
+                                              select new DetailViewModel() { Id = res.Id, Name = res.Name, CarID = res.CarID }
+                                };
+                                                                                                  
                                  
             return carViewModels;
         }

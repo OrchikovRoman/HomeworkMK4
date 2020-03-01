@@ -12,7 +12,7 @@ namespace DAL.Interfaces
         IEnumerable<Car> GetCars();
         void Create(Car car);
         void Update(Car car);
-        void Delete(Car id);
+        void Delete(int Id);
         Car GetById(int id);
         
     }

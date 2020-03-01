@@ -31,15 +31,9 @@ namespace PresentationLayer.Controllers
             service.Create(detailCreate);
         }
 
-        public void Delete(DetailViewModel detail)
+        public void Delete(int Id)
         {
-            var detailDelete = new DetailModel()
-            {
-                Id = detail.Id,
-                CarID = detail.CarID,
-                Name = detail.Name
-            };
-            service.Delete(detailDelete);
+            service.Delete(Id);
         }
 
 

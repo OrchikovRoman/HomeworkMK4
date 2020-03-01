@@ -17,9 +17,9 @@ namespace CarDetailProgram
             ICarController carController = new CarController();
             IDetailController detailController = new DetailController();
 
-            var lamborgini = new CarViewModel() { Name="Lamborgini" };
-            var engine = new DetailViewModel() { CarID=9, Name="Engine"};
-            detailController.Create(engine);
+            var lamborgini = new CarViewModel() { Id = 5, Name = "Lamborgini" };
+            //var seat = new DetailViewModel() {Id=5, CarID = 4, Name = "Seat" };
+            //detailController.Create(seat);
             carController.Create(lamborgini);
 
             foreach (var res in carController.GetСars())

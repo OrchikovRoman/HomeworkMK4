@@ -11,7 +11,7 @@ namespace BuisnessLogicLayer.Interfaces
     {
         IEnumerable<CarModel> GetСars();
         void Create(CarModel car);
-        void Delete(CarModel car);
+        void Delete(int Id);
         void Update(CarModel car);
         CarModel GetById(int Id);
     }

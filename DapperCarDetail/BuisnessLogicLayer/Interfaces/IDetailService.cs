@@ -11,7 +11,7 @@ namespace BuisnessLogicLayer.Interfaces
     {
         IEnumerable<DetailModel> GetDetails();
         void Create(DetailModel detail);
-        void Delete(DetailModel detail);
+        void Delete(int Id);
         void Update(DetailModel detail);
         DetailModel GetById(int Id);
     }

@@ -28,9 +28,9 @@ namespace DAL.Repositories
             };
         }
 
-        public void Delete(Detail detail)
+        public void Delete(int Id)
         {
-            var sql = $"DELETE FROM Detail WHERE Id = {detail.Id}";
+            var sql = $"DELETE FROM Detail WHERE Id = {Id}";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {

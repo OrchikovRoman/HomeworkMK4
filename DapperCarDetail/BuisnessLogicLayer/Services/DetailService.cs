@@ -31,15 +31,9 @@ namespace BuisnessLogicLayer.Services
             repository.Create(detailCreate);
         }
 
-        public void Delete(DetailModel detail)
+        public void Delete(int Id)
         {
-            var detailDelete = new Detail()
-            {
-                Id = detail.Id,
-                CarID = detail.CarID,
-                Name = detail.Name
-            };
-            repository.Delete(detailDelete);
+            repository.Delete(Id);
         }
 
         public DetailModel GetById(int Id)

@@ -11,7 +11,7 @@ namespace PresentationLayer.Interfaces
     {
         IEnumerable<DetailViewModel> GetDetails();
         void Create(DetailViewModel detail);
-        void Delete(DetailViewModel detail);
+        void Delete(int Id);
         void Update(DetailViewModel detail);
         DetailViewModel GetById(int Id);
     }

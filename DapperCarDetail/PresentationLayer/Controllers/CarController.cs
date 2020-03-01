@@ -34,16 +34,9 @@ namespace PresentationLayer.Controllers
             service.Create(carCreate);
         }
 
-        public void Delete(CarViewModel car)
+        public void Delete(int Id)
         {
-            var carDelete = new CarModel()
-            {
-                Id = car.Id,
-                Name = car.Name,
-                Details = from res in car.Details
-                          select new DetailModel() { Id = res.Id, Name = res.Name, CarID = res.CarID }
-            };
-            service.Delete(carDelete);
+            service.Delete(Id);
         }
 
         public IEnumerable<CarViewModel> GetСars()

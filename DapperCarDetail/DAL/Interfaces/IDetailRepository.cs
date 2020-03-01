@@ -12,7 +12,7 @@ namespace DAL.Interfaces
         IEnumerable<Detail> GetDetails();
         void Create(Detail detail);
         void Update(Detail detail);
-        void Delete(Detail detail);
+        void Delete(int Id);
         Detail GetById(int id);
     }
 }

@@ -28,9 +28,9 @@ namespace DAL.Repositories
             };
         }
 
-        public void Delete(Car car)
+        public void Delete(int Id)
         {
-            var sql = $"DELETE FROM Car WHERE Id = {car.Id}";
+            var sql = $"DELETE FROM Car WHERE Id = {Id}";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -64,13 +64,15 @@ namespace DAL.Repositories
         {
 
             var query = "SELECT * FROM Car s LEFT JOIN Detail d on s.Id=d.CarID WHERE s.Id=d.CarID";
-            var result = new List<Car>();
+           
 
             SqlConnection connection = new SqlConnection(connectionString);
 
             using (connection)
             {
                 connection.Open();
+                var result = new List<Car>();
+
                 var sqlResult = connection.Query<Car, Detail, Car>(query, (car, detail) =>
                 {
                     var exCar = result.FirstOrDefault(x => x.Id == car.Id);
@@ -79,8 +81,12 @@ namespace DAL.Repositories
                         result.Add(car);
                         exCar = car;
                     }
+                    if(exCar.Details==null)
+                    {
+                        exCar.Details = new List<Detail>();
+                    }
                     exCar.Details.Add(detail);
-                    return car;
+                    return exCar;
                 });
                 connection.Close();
                 return result;

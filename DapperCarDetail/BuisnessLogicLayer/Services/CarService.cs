@@ -34,16 +34,9 @@ namespace BuisnessLogicLayer.Services
             repository.Create(carModel);
         }
 
-        public void Delete(CarModel car)
+        public void Delete(int Id)
         {
-            var carModel = new Car()
-            {
-                Id = car.Id,
-                Name = car.Name,
-                Details = (from det in car.Details
-                           select new Detail() { Id = det.Id, CarID = det.CarID, Name = det.Name }).ToList()
-            };
-            repository.Delete(carModel);
+            repository.Delete(Id);
         }
 
         public CarModel GetById(int Id)

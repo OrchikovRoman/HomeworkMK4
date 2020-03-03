@@ -17,10 +17,12 @@ namespace CarDetailProgram
             ICarController carController = new CarController();
             IDetailController detailController = new DetailController();
 
-            var lamborgini = new CarViewModel() { Id = 5, Name = "Lamborgini" };
-            //var seat = new DetailViewModel() {Id=5, CarID = 4, Name = "Seat" };
-            //detailController.Create(seat);
-            carController.Create(lamborgini);
+            //var lamborgini = new CarViewModel() { Id = 5, Name = "Lamborgini" };
+            ////var seat = new DetailViewModel() {Id=5, CarID = 4, Name = "Seat" };
+            ////detailController.Create(seat);
+            //carController.Create(lamborgini);
+
+            carController.GetById(1);
 
             foreach (var res in carController.GetСars())
             {

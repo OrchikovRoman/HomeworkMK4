@@ -55,7 +55,7 @@ namespace PresentationLayer.Controllers
             service.Update(detailUpdate);
         }
 
-        DetailViewModel IDetailController.GetById(int Id)
+        public DetailViewModel GetById(int Id)
         {
             var model = service.GetById(Id);
 

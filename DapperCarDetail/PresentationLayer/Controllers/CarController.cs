@@ -14,12 +14,10 @@ namespace PresentationLayer.Controllers
     public class CarController : ICarController
     {
         private ICarService service;
-        private IDetailService detService;
 
         public CarController()
         {
             service = new CarService();
-            detService = new DetailService();
         }
 
         public void Create(CarViewModel car)

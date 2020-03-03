@@ -44,18 +44,25 @@ namespace DAL.Repositories
         {
             var sql = $"SELECT * FROM Car h INNER JOIN Detail s on s.Id = h.CarID WHERE h.Id = {id};";
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            SqlConnection connection = new SqlConnection(connectionString);
+
+            using (connection)
             {
                 connection.Open();
-                var result = connection.Query<Car, Detail, Car>(sql, (car, detail) =>
-                {
-                    car.Details = (from res in car.Details
-                                  select new Detail() { Id = res.Id, Name = res.Name, CarID = res.CarID }).ToList();
+                var result = new List<Car>();
 
-                    return car;
+                var sqlResult = connection.Query<Car, Detail, Car>(sql, (car, detail) =>
+                {
+                    var exCar = result.FirstOrDefault(x => x.Id == car.Id);
+                    if (exCar == null)
+                    {
+                        result.Add(car);
+                        exCar = car;
+                    }
+                    exCar.Details.Add(detail);
+                    return exCar;
                 });
                 connection.Close();
-
                 return result.FirstOrDefault();
             };
         }
@@ -80,10 +87,6 @@ namespace DAL.Repositories
                     {
                         result.Add(car);
                         exCar = car;
-                    }
-                    if(exCar.Details==null)
-                    {
-                        exCar.Details = new List<Detail>();
                     }
                     exCar.Details.Add(detail);
                     return exCar;

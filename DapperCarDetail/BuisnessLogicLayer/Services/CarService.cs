@@ -59,10 +59,19 @@ namespace BuisnessLogicLayer.Services
 
         public IEnumerable<CarModel> GetСars()
         {
-            var detailModels = from detail in detRepository.GetDetails()
-                               select new DetailModel() { Id = detail.Id, CarID = detail.CarID, Name = detail.Name };
-            var carModels = (from car in repository.GetCars()
-                             select new CarModel() { Id = car.Id, Name = car.Name, Details = detailModels.Where(x => x.CarID == car.Id) }).ToList();
+            var model = repository.GetCars();
+            var carModels = model.Select(x => new CarModel
+            {
+                Id = x.Id,
+                Name = x.Name,
+                Details = x.Details.Where(y => y.CarID == x.Id).Select(y => new DetailModel
+                {
+                    Id = y.Id,
+                    Name = y.Name,
+                    CarID = y.CarID
+                })
+            });
+
             return carModels;
         }
 

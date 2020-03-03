@@ -8,6 +8,10 @@ namespace DAL.Models
 {
     public class Car
     {
+        public Car ()
+        {
+            Details = new List<Detail>();
+        }
         public int Id { get; set; }
         public string Name { get; set; }
 

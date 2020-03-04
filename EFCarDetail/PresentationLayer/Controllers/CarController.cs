@@ -14,7 +14,7 @@ namespace PresentationLayer.Controllers
     public class CarController : ICarController
     {
         private readonly ICarService service;
-     
+
         public CarController()
         {
             service = new CarService();
@@ -30,7 +30,8 @@ namespace PresentationLayer.Controllers
                 {
                     Id = x.Id,
                     Name = x.Name,
-                    CarID = x.CarID
+                    CarID = x.CarID,
+                    Price = x.Price
                 })
             };
             service.Create(carCreate);
@@ -51,7 +52,8 @@ namespace PresentationLayer.Controllers
                 {
                     Id = y.Id,
                     Name = y.Name,
-                    CarID = y.CarID
+                    CarID = y.CarID,
+                    Price = y.Price
                 })
             });
             return carViewModels;
@@ -63,11 +65,12 @@ namespace PresentationLayer.Controllers
             {
                 Id = car.Id,
                 Name = car.Name,
-                Details = car.Details.Select(x=> new DetailModel
+                Details = car.Details.Select(x => new DetailModel
                 {
-                    Id=x.Id,
-                    Name=x.Name,
-                    CarID=x.CarID
+                    Id = x.Id,
+                    Name = x.Name,
+                    CarID = x.CarID,
+                    Price = x.Price
                 })
             };
             service.Update(carUpdate);
@@ -85,7 +88,8 @@ namespace PresentationLayer.Controllers
                 {
                     Id = x.Id,
                     Name = x.Name,
-                    CarID = x.CarID
+                    CarID = x.CarID,
+                    Price = x.Price
                 })
             };
 

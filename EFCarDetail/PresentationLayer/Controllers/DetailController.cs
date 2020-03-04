@@ -22,11 +22,12 @@ namespace PresentationLayer.Controllers
 
         public void Create(DetailViewModel detail)
         {
-            var detailCreate = new DetailModel() 
+            var detailCreate = new DetailModel()
             {
-                Id=detail.Id,
-                CarID=detail.CarID,
-                Name=detail.Name
+                Id = detail.Id,
+                CarID = detail.CarID,
+                Name = detail.Name,
+                Price = detail.Price
             };
             service.Create(detailCreate);
         }
@@ -43,7 +44,8 @@ namespace PresentationLayer.Controllers
             {
                 Id = x.Id,
                 Name = x.Name,
-                CarID = x.CarID
+                CarID = x.CarID,
+                Price = x.Price
             });
             return detailViewModels;
         }
@@ -54,7 +56,8 @@ namespace PresentationLayer.Controllers
             {
                 Id = detail.Id,
                 CarID = detail.CarID,
-                Name = detail.Name
+                Name = detail.Name,
+                Price = detail.Price
             };
             service.Update(detailUpdate);
         }
@@ -67,7 +70,8 @@ namespace PresentationLayer.Controllers
             {
                 Id = model.Id,
                 Name = model.Name,
-                CarID = model.CarID
+                CarID = model.CarID,
+                Price = model.Price
             };
             return detailViewModel;
         }

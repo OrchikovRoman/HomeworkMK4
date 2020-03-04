@@ -39,17 +39,10 @@ namespace DAL.Repositories
 
         public void Update(Car car)
         {
-            var updateCar = _ctx.Car.Select(x => new Car
-            {
-                Id = car.Id,
-                Name = car.Name,
-                Details = car.Details.Select(y => new Detail
-                {
-                    Id = y.Id,
-                    Name = y.Name,
-                    CarID = y.CarID
-                }).ToList()
-            }).FirstOrDefault();
+            var updateCar = _ctx.Car.FirstOrDefault(x => x.Id == car.Id);
+            updateCar.Id = car.Id;
+            updateCar.Name = car.Name;
+            updateCar.Details = car.Details; 
             _ctx.SaveChanges();
         }
     }

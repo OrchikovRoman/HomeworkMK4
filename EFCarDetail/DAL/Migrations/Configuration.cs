@@ -9,8 +9,7 @@
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
-            ContextKey = "ORM.CarDetailsContext";
+            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(DAL.CarDetailsContext context)

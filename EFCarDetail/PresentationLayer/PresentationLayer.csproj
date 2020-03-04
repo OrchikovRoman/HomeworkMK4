@@ -43,10 +43,16 @@
   <ItemGroup>
     <Compile Include="Controllers\CarController.cs" />
     <Compile Include="Controllers\DetailController.cs" />
+    <Compile Include="Controllers\DetailTypeController.cs" />
+    <Compile Include="Controllers\ManufacturerController.cs" />
     <Compile Include="Interfaces\ICarController.cs" />
     <Compile Include="Interfaces\IDetailController.cs" />
+    <Compile Include="Interfaces\IDetailTypeController.cs" />
+    <Compile Include="Interfaces\IManufacturerController.cs" />
     <Compile Include="Models\CarViewModel.cs" />
+    <Compile Include="Models\DetailTypeViewModel.cs" />
     <Compile Include="Models\DetailViewModel.cs" />
+    <Compile Include="Models\ManufacturerViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

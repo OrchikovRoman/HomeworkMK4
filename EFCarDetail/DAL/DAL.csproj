@@ -57,24 +57,37 @@
     <Compile Include="CarDetailsContext.cs" />
     <Compile Include="Interfaces\ICarRepository.cs" />
     <Compile Include="Interfaces\IDetailRepository.cs" />
-    <Compile Include="Migrations\202003021846216_InitialCreate.cs" />
-    <Compile Include="Migrations\202003021846216_InitialCreate.designer.cs">
-      <DependentUpon>202003021846216_InitialCreate.cs</DependentUpon>
+    <Compile Include="Interfaces\IDetailTypeRepository.cs" />
+    <Compile Include="Interfaces\IManufacturerRepository.cs" />
+    <Compile Include="Migrations\202003031916324_InitialCreate.cs" />
+    <Compile Include="Migrations\202003031916324_InitialCreate.designer.cs">
+      <DependentUpon>202003031916324_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003031930094_AddDetailTypeTable.cs" />
+    <Compile Include="Migrations\202003031930094_AddDetailTypeTable.designer.cs">
+      <DependentUpon>202003031930094_AddDetailTypeTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Car.cs" />
     <Compile Include="Models\Detail.cs" />
+    <Compile Include="Models\DetailType.cs" />
+    <Compile Include="Models\Manufacturer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\CarRepository.cs" />
     <Compile Include="Repositories\DetailRepository.cs" />
+    <Compile Include="Repositories\DetailTypeRepository.cs" />
+    <Compile Include="Repositories\ManufacturerRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202003021846216_InitialCreate.resx">
-      <DependentUpon>202003021846216_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202003031916324_InitialCreate.resx">
+      <DependentUpon>202003031916324_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003031930094_AddDetailTypeTable.resx">
+      <DependentUpon>202003031930094_AddDetailTypeTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

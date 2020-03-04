@@ -40,12 +40,11 @@ namespace DAL.Repositories
 
         public void Update(Detail detail)
         {
-            var updateDet = _ctx.Detail.Select(x => new Detail
-            {
-                Id = detail.Id,
-                Name = detail.Name,
-                CarID = detail.CarID
-            }).FirstOrDefault();
+            var updateDet = _ctx.Detail.FirstOrDefault(x => x.Id == detail.Id);
+            updateDet.Id = detail.Id;
+            updateDet.Name = detail.Name;
+            updateDet.CarID = detail.CarID;
+            updateDet.Price = detail.Price;
             _ctx.SaveChanges();
         }
     }

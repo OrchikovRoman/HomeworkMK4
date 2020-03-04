@@ -24,9 +24,10 @@ namespace BuisnessLogicLayer.Services
         {
             var detailCreate = new Detail()
             {
-                Id=detail.Id,
-                CarID=detail.CarID,
-                Name=detail.Name
+                Id = detail.Id,
+                CarID = detail.CarID,
+                Name = detail.Name,
+                Price = detail.Price
             };
             repository.Create(detailCreate);
         }
@@ -44,7 +45,8 @@ namespace BuisnessLogicLayer.Services
             {
                 Id = model.Id,
                 Name = model.Name,
-                CarID = model.CarID
+                CarID = model.CarID,
+                Price = model.Price
             };
             return detailModel;
         }
@@ -55,7 +57,8 @@ namespace BuisnessLogicLayer.Services
             {
                 Id = x.Id,
                 Name = x.Name,
-                CarID = x.CarID
+                CarID = x.CarID,
+                Price = x.Price
             });
             return detailModels;
         }
@@ -66,7 +69,8 @@ namespace BuisnessLogicLayer.Services
             {
                 Id = detail.Id,
                 CarID = detail.CarID,
-                Name = detail.Name
+                Name = detail.Name,
+                Price = detail.Price
             };
             repository.Update(detailUpdate);
         }

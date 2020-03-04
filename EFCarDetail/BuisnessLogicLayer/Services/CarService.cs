@@ -26,11 +26,12 @@ namespace BuisnessLogicLayer.Services
             {
                 Id = car.Id,
                 Name = car.Name,
-                Details = car.Details.Select(x=> new Detail
+                Details = car.Details.Select(x => new Detail
                 {
-                    Id=x.Id,
-                    Name=x.Name,
-                    CarID=x.CarID
+                    Id = x.Id,
+                    Name = x.Name,
+                    CarID = x.CarID,
+                    Price = x.Price
                 }).ToList()
             };
             repository.Create(carModel);
@@ -53,7 +54,8 @@ namespace BuisnessLogicLayer.Services
                 {
                     Id = x.Id,
                     Name = x.Name,
-                    CarID = x.CarID
+                    CarID = x.CarID,
+                    Price = x.Price
                 })
             };
             return carModel;
@@ -70,7 +72,8 @@ namespace BuisnessLogicLayer.Services
                 {
                     Id = y.Id,
                     Name = y.Name,
-                    CarID = y.CarID
+                    CarID = y.CarID,
+                    Price = y.Price
                 })
             });
 
@@ -83,11 +86,12 @@ namespace BuisnessLogicLayer.Services
             {
                 Id = car.Id,
                 Name = car.Name,
-                Details = car.Details.Select(x=> new Detail
+                Details = car.Details.Select(x => new Detail
                 {
-                    Id=x.Id,
-                    Name=x.Name,
-                    CarID=x.CarID
+                    Id = x.Id,
+                    Name = x.Name,
+                    CarID = x.CarID,
+                    Price=x.Price
                 }).ToList()
             };
             repository.Update(carModel);

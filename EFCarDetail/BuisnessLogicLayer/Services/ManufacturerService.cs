@@ -43,7 +43,7 @@ namespace BuisnessLogicLayer.Services
                     CarID = c.CarID,
                     Price = c.Price
                 })
-            }); 
+            });
 
             return manufacturer;
         }
@@ -76,8 +76,67 @@ namespace BuisnessLogicLayer.Services
                     Price = z.Price
                 })
             };
-        
+
             return manufacturerModel;
+        }
+
+        public CarManufacturerModel GetMostExpensive()
+        {
+            var AllManuf = repository.GetAll();
+            var manufacturer = AllManuf.OrderBy(x => x.Cars.Max(y => y.Details.Sum(z => z.Price))).FirstOrDefault();
+            var manufCars = manufacturer.Cars.Select(x => new CarModel
+            {
+                Id = x.Id,
+                Name = x.Name,
+                Details = x.Details.Select(y => new DetailModel
+                {
+                    Id = y.Id,
+                    Name = y.Name,
+                    Price = y.Price,
+                }),
+            });
+            var expensiveCar = manufCars.OrderByDescending(x => x.Details.Sum(y => y.Price)).FirstOrDefault();
+
+            var carManufacturerModel = new CarManufacturerModel
+            {
+                CarsModel = new CarModel
+                {
+                    Id = expensiveCar.Id,
+                    Name = expensiveCar.Name,
+                    Details = expensiveCar.Details.Select(x => new DetailModel
+                    {
+                        Name = x.Name,
+                        Price = x.Price,
+                        CarID = x.CarID,
+                        Id = x.Id
+                    })
+                },
+                ManufacturerModel = new ManufacturerModel
+                {
+                    Id = manufacturer.Id,
+                    Name = manufacturer.Name,
+                    CarsModel = manufacturer.Cars.Select(y => new CarModel
+                    {
+                        Id = y.Id,
+                        Name = y.Name,
+                        Details = y.Details.Select(z => new DetailModel
+                        {
+                            Id = z.Id,
+                            Name = z.Name,
+                            CarID = z.CarID,
+                            Price = z.Price
+                        })
+                    }),
+                    DetailsModel = manufacturer.Details.Select(c => new DetailModel
+                    {
+                        Id = c.Id,
+                        Name = c.Name,
+                        CarID = c.CarID,
+                        Price = c.Price
+                    })
+                }
+            };
+            return carManufacturerModel;
         }
     }
 }

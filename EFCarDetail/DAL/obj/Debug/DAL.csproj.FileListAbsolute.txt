@@ -27,3 +27,4 @@ C:\Users\Roman\source\repos\EFCarDetail\DAL\obj\Debug\DAL.csproj.CopyComplete
 C:\Users\Roman\source\repos\EFCarDetail\DAL\obj\Debug\DAL.Migrations.InitialCreate.resources
 C:\Users\Roman\source\repos\EFCarDetail\DAL\obj\Debug\DAL.csproj.GenerateResource.cache
 C:\Users\Roman\source\repos\EFCarDetail\DAL\obj\Debug\DAL.Migrations.AddDetailTypeTable.resources
+C:\Users\Roman\source\repos\EFCarDetail\DAL\obj\Debug\DAL.Migrations.AddManufacturerAndPrice.resources

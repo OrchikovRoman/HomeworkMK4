@@ -67,6 +67,10 @@
     <Compile Include="Migrations\202003031930094_AddDetailTypeTable.designer.cs">
       <DependentUpon>202003031930094_AddDetailTypeTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003051601023_AddManufacturerAndPrice.cs" />
+    <Compile Include="Migrations\202003051601023_AddManufacturerAndPrice.designer.cs">
+      <DependentUpon>202003051601023_AddManufacturerAndPrice.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Car.cs" />
     <Compile Include="Models\Detail.cs" />
@@ -88,6 +92,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003031930094_AddDetailTypeTable.resx">
       <DependentUpon>202003031930094_AddDetailTypeTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003051601023_AddManufacturerAndPrice.resx">
+      <DependentUpon>202003051601023_AddManufacturerAndPrice.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -16,7 +16,6 @@ namespace DAL.Models
         }
         public int Id { get; set; }
         public string Name { get; set; }
-        public Detail Detail { get; set; }
 
         public ICollection<Detail> Details { get; set; }
 

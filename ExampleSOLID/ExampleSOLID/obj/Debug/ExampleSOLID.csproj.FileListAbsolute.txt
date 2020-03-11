@@ -1,0 +1,6 @@
+C:\Users\Roman\source\repos\ExampleSOLID\ExampleSOLID\bin\Debug\ExampleSOLID.exe.config
+C:\Users\Roman\source\repos\ExampleSOLID\ExampleSOLID\bin\Debug\ExampleSOLID.exe
+C:\Users\Roman\source\repos\ExampleSOLID\ExampleSOLID\bin\Debug\ExampleSOLID.pdb
+C:\Users\Roman\source\repos\ExampleSOLID\ExampleSOLID\obj\Debug\ExampleSOLID.csprojAssemblyReference.cache
+C:\Users\Roman\source\repos\ExampleSOLID\ExampleSOLID\obj\Debug\ExampleSOLID.exe
+C:\Users\Roman\source\repos\ExampleSOLID\ExampleSOLID\obj\Debug\ExampleSOLID.pdb

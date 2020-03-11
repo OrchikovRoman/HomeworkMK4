@@ -32,6 +32,11 @@ namespace DAL.Repositories
             return _ctx.Car.FirstOrDefault(x => x.Id == id);
         }
 
+        public Car GetByName(string Name)
+        {
+            return _ctx.Car.FirstOrDefault(x => x.Name == Name);
+        }
+
         public IEnumerable<Car> GetCars()
         {
             return _ctx.Car.AsNoTracking().ToList();

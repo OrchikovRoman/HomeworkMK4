@@ -80,35 +80,25 @@ namespace BuisnessLogicLayer.Services
             return manufacturerModel;
         }
 
-        public CarManufacturerModel GetMostExpensive()
+        public IEnumerable<CarManufacturerModel> GetMostExpensive()
         {
             var AllManuf = repository.GetAll();
-            var manufacturer = AllManuf.OrderBy(x => x.Cars.Max(y => y.Details.Sum(z => z.Price))).FirstOrDefault();
-            var manufCars = manufacturer.Cars.Select(x => new CarModel
-            {
-                Id = x.Id,
-                Name = x.Name,
-                Details = x.Details.Select(y => new DetailModel
-                {
-                    Id = y.Id,
-                    Name = y.Name,
-                    Price = y.Price,
-                }),
-            });
-            var expensiveCar = manufCars.OrderByDescending(x => x.Details.Sum(y => y.Price)).FirstOrDefault();
+            var manufacturer = AllManuf.OrderBy(x => x.Cars.Max(y => y.Details.Sum(z => z.Price))).First();
+            
+            //var expensiveCar = manufCars.OrderByDescending(x => x.Details.Sum(y => y.Price)).First();
 
-            var carManufacturerModel = new CarManufacturerModel
+            var carManufacturerModel = AllManuf.Select(x=> new CarManufacturerModel
             {
                 CarsModel = new CarModel
                 {
-                    Id = expensiveCar.Id,
-                    Name = expensiveCar.Name,
-                    Details = expensiveCar.Details.Select(x => new DetailModel
+                    Id = x.Id,
+                    Name = x.Name,
+                    Details = x.Details.Select(y => new DetailModel
                     {
-                        Name = x.Name,
-                        Price = x.Price,
-                        CarID = x.CarID,
-                        Id = x.Id
+                        Name = y.Name,
+                        Price = y.Price,
+                        CarID = y.CarID,
+                        Id = y.Id
                     })
                 },
                 ManufacturerModel = new ManufacturerModel
@@ -135,7 +125,7 @@ namespace BuisnessLogicLayer.Services
                         Price = c.Price
                     })
                 }
-            };
+            });
             return carManufacturerModel;
         }
     }

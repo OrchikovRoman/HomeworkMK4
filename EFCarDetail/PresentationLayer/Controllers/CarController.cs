@@ -25,7 +25,7 @@ namespace PresentationLayer.Controllers
             var carCreate = new CarModel
             {
                 Id = car.Id,
-                Name = car.Name,
+                Name = CheckSpaces(car.Name),
                 Details = car.Details.Select(x => new DetailModel
                 {
                     Id = x.Id,
@@ -35,6 +35,19 @@ namespace PresentationLayer.Controllers
                 })
             };
             service.Create(carCreate);
+        }
+        public string CheckSpaces(string txt)
+        {
+            int spaceCount = 0;
+
+            for (int i = 0; i < txt.Length; i++)
+            {
+                if (txt[i] == ' ')
+                    spaceCount++;
+                else if (spaceCount > 2)
+                    throw new NotImplementedException("Error! Please check the spaces in the car name");
+            }
+            return txt;
         }
 
         public void Delete(int Id)

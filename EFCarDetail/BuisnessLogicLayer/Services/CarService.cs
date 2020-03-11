@@ -22,33 +22,36 @@ namespace BuisnessLogicLayer.Services
 
         public void Create(CarModel car)
         {
-            var carModel = new Car()
+            if (IsValid(car) == false)
+                throw new Exception("Please change the name, this name is already taken!");
+            else
             {
-                Id = car.Id,
-                Name = CheckSpaces(car.Name),
-                Details = car.Details.Select(x => new Detail
+                var carModel = new Car()
                 {
-                    Id = x.Id,
-                    Name = x.Name,
-                    CarID = x.CarID,
-                    Price = x.Price
-                }).ToList()
-            };
-            repository.Create(carModel);
-        }
-        public string CheckSpaces(string txt)
-        {
-            int spaceCount = 0;
-
-            for (int i = 0; i < txt.Length; i++)
-            {
-                if (txt[i] == ' ')
-                    spaceCount++;
-                else if (spaceCount > 2)
-                    throw new NotImplementedException("Error! Please check the spaces in the car name");
+                    Id = car.Id,
+                    Name = car.Name,
+                    Details = car.Details.Select(x => new Detail
+                    {
+                        Id = x.Id,
+                        Name = x.Name,
+                        CarID = x.CarID,
+                        Price = x.Price
+                    }).ToList()
+                };
+                repository.Create(carModel);
             }
-            return txt;
+
         }
+        private bool IsValid(CarModel car)
+        {
+            if (repository.GetByName(car.Name) == null)
+            {
+                return true;
+            }
+            else
+                return false;
+        }
+
 
         public void Delete(int Id)
         {
@@ -104,7 +107,7 @@ namespace BuisnessLogicLayer.Services
                     Id = x.Id,
                     Name = x.Name,
                     CarID = x.CarID,
-                    Price=x.Price
+                    Price = x.Price
                 }).ToList()
             };
             repository.Update(carModel);

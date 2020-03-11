@@ -14,6 +14,7 @@ namespace DAL.Interfaces
         void Update(Car car);
         void Delete(int Id);
         Car GetById(int id);
+        Car GetByName(string Name);
         
     }
 }

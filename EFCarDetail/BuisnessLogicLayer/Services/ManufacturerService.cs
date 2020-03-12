@@ -83,10 +83,8 @@ namespace BuisnessLogicLayer.Services
         public IEnumerable<CarManufacturerModel> GetMostExpensive()
         {
             var AllManuf = repository.GetAll();
-            var manufacturer = AllManuf.OrderBy(x => x.Cars.Max(y => y.Details.Sum(z => z.Price))).First();
-            
+            //var manufacturer = AllManuf.OrderBy(x => x.Cars.Max(y => y.Details.Sum(z => z.Price))).FirstOrDefault();
             //var expensiveCar = manufCars.OrderByDescending(x => x.Details.Sum(y => y.Price)).First();
-
             var carManufacturerModel = AllManuf.Select(x=> new CarManufacturerModel
             {
                 CarsModel = new CarModel
@@ -103,9 +101,9 @@ namespace BuisnessLogicLayer.Services
                 },
                 ManufacturerModel = new ManufacturerModel
                 {
-                    Id = manufacturer.Id,
-                    Name = manufacturer.Name,
-                    CarsModel = manufacturer.Cars.Select(y => new CarModel
+                    Id = x.Id,
+                    Name = x.Name,
+                    CarsModel = AllManuf.OrderBy(d=>d.Cars.Max(s=>s.Details.Sum(a=>a.Price))).Select(y => new CarModel
                     {
                         Id = y.Id,
                         Name = y.Name,
@@ -117,7 +115,7 @@ namespace BuisnessLogicLayer.Services
                             Price = z.Price
                         })
                     }),
-                    DetailsModel = manufacturer.Details.Select(c => new DetailModel
+                    DetailsModel = x.Details.Select(c => new DetailModel
                     {
                         Id = c.Id,
                         Name = c.Name,

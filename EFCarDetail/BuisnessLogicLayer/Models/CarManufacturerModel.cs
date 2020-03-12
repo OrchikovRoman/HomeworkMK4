@@ -8,7 +8,7 @@ namespace BuisnessLogicLayer.Models
 {
     public class CarManufacturerModel
     {
-        public CarModel CarsModel { get; set; }
+        public CarModel CarModel { get; set; }
         public ManufacturerModel ManufacturerModel { get; set; }
     }
 }

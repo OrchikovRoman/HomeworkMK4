@@ -83,44 +83,43 @@ namespace BuisnessLogicLayer.Services
         public IEnumerable<CarManufacturerModel> GetMostExpensive()
         {
             var AllManuf = repository.GetAll();
-            //var manufacturer = AllManuf.OrderBy(x => x.Cars.Max(y => y.Details.Sum(z => z.Price))).FirstOrDefault();
-            //var expensiveCar = manufCars.OrderByDescending(x => x.Details.Sum(y => y.Price)).First();
+            
             var carManufacturerModel = AllManuf.Select(x=> new CarManufacturerModel
             {
-                CarsModel = new CarModel
+                CarModel=AllManuf.OrderBy(c=>c.Cars.Max(d=>d.Details.Sum(s=>s.Price))).Select(w=> new CarModel
                 {
-                    Id = x.Id,
-                    Name = x.Name,
-                    Details = x.Details.Select(y => new DetailModel
+                    Id=w.Id,
+                    Name=w.Name,
+                    Details=w.Details.Select(y=> new DetailModel
                     {
-                        Name = y.Name,
-                        Price = y.Price,
-                        CarID = y.CarID,
-                        Id = y.Id
+                        Id=y.Id,
+                        Name=y.Name,
+                        CarID=y.CarID,
+                        Price=y.Price,
                     })
-                },
+                }).FirstOrDefault(),
                 ManufacturerModel = new ManufacturerModel
                 {
-                    Id = x.Id,
-                    Name = x.Name,
-                    CarsModel = AllManuf.OrderBy(d=>d.Cars.Max(s=>s.Details.Sum(a=>a.Price))).Select(y => new CarModel
+                    Id=x.Id,
+                    Name=x.Name,
+                    CarsModel=x.Cars.Select(q=> new CarModel
                     {
-                        Id = y.Id,
-                        Name = y.Name,
-                        Details = y.Details.Select(z => new DetailModel
+                        Id=q.Id,
+                        Name=q.Name,
+                        Details=q.Details.Select(r=>new DetailModel
                         {
-                            Id = z.Id,
-                            Name = z.Name,
-                            CarID = z.CarID,
-                            Price = z.Price
+                            Id=r.Id,
+                            Name=r.Name,
+                            CarID=r.CarID,
+                            Price=r.Price
                         })
                     }),
-                    DetailsModel = x.Details.Select(c => new DetailModel
+                    DetailsModel=x.Details.Select(e=> new DetailModel
                     {
-                        Id = c.Id,
-                        Name = c.Name,
-                        CarID = c.CarID,
-                        Price = c.Price
+                        Id=e.Id,
+                        Name=e.Name,
+                        CarID=e.CarID,
+                        Price=e.Price
                     })
                 }
             });

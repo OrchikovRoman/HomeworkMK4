@@ -86,7 +86,7 @@ namespace BuisnessLogicLayer.Services
 
             var carManufacturerModel = AllManuf.Select(x => new CarManufacturerModel
             {
-                CarModel = x.Cars.OrderBy(c => x.Cars.Max(d => d.Details.Sum(s => s.Price))).Select(f => new CarModel
+                CarModel = x.Cars.OrderByDescending(c => c.Details.Max(d => d.Price)).Select(f => new CarModel
                 {
                     Id = f.Id,
                     Name = f.Name,

@@ -1,0 +1,63 @@
+﻿@model IEnumerable<MyBlog.Models.ArticleViewModel>
+@{
+    ViewBag.Title = "Articles";
+}
+<h4>@ViewBag.Massage</h4>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        <h3>Articles</h3><img src="~/Resources/Article.png" width="150" height="150">
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Img)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Txt)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DataArticle)
+                </th>
+                
+                <th></th>
+            </tr>
+            @foreach (var i in Model)
+            {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => i.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => i.Img)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => i.Txt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => i.DataArticle)
+            </td>
+            
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = i.Id }) 
+                @Html.ActionLink("Details", "Details", new { id = i.Id }) 
+                @Html.ActionLink("Delete", "Delete", new { id = i.Id }) 
+            </td>
+        </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>

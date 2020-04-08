@@ -1,0 +1,1 @@
+C:\Users\Roman\source\repos\MyBlog\BlogDAL\obj\Debug\BlogDAL.csprojAssemblyReference.cache

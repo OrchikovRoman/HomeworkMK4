@@ -1,0 +1,31 @@
+﻿@model MyBlog.Models.AuthorViewModel
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        @Html.DisplayNameFor(model => model.Id)
+        @Html.DisplayFor(model => model.Id)
+
+        @Html.DisplayNameFor(model => model.Name)
+        @Html.DisplayFor(model => model.Name)
+        <p>
+            @foreach (var obj in Model.Articles)
+            {
+                <img src="~/Resources/Author" width="250" height="250">;
+                @obj.Title
+                @*<img src="@Url.Content(obj.Img)" width="400" alt="IMAGES" />*@
+            }
+        </p>
+    </div>
+</body>
+</html>

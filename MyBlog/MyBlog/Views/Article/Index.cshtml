@@ -31,31 +31,31 @@
                 <th>
                     @Html.DisplayNameFor(model => model.DataArticle)
                 </th>
-                
+
                 <th></th>
             </tr>
             @foreach (var i in Model)
             {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => i.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => i.Img)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => i.Txt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => i.DataArticle)
-            </td>
-            
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = i.Id }) 
-                @Html.ActionLink("Details", "Details", new { id = i.Id }) 
-                @Html.ActionLink("Delete", "Delete", new { id = i.Id }) 
-            </td>
-        </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => i.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => i.Img)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => i.Txt)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => i.DataArticle)
+                    </td>
+
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = i.Id })
+                        @Html.ActionLink("Details", "Details", new { id = i.Id })
+                        @Html.ActionLink("Delete", "Delete", new { id = i.Id })
+                    </td>
+                </tr>
             }
         </table>
     </div>

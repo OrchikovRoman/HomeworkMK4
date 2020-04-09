@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 
@@ -12,8 +13,10 @@ namespace MyBlog.Models
         public string Title { get; set; }
         public string Txt { get; set; }
         public string Img { get; set; }
-        [DataType(DataType.Date)]
+        [DataType(DataType.DateTime)]
+        [Display(Name = "Input date")]
         public DateTime DataArticle { get; set; }
+       
 
         public int CategoryId { get; set; }
         public virtual CategoryViewModel Category { get; set; }

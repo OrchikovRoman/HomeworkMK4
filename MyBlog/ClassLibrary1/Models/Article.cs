@@ -14,14 +14,26 @@ namespace BlogDAL.Models
         public string Title { get; set; }
         public string Txt { get; set; }
         public string Img { get; set; }
-        public DateTime DateArticle { get; set; }
-        
+
+        [DataType(DataType.DateTime)]
+        public DateTime? DateArticle { get; set; }
+    //    {
+    //        get
+    //        {
+    //            return DateArticle;
+    //        }
+    //set
+    //        {
+    //            DateArticle = DateTime.Now;
+    //        }
+    //    }
+
         public int AuthorId { get; set; }
         public virtual Author Author { get; set; }
-      
+
         public int CategoryId { get; set; }
         public virtual Category Category { get; set; }
-        
+
         public virtual ICollection<Tag> Tags { get; set; }
     }
 }

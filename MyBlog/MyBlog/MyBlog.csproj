@@ -353,16 +353,20 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ClassLibrary2\BlogBL.csproj">
-      <Project>{C299C68B-4DE1-4F61-BEAD-D5B08B81ABCD}</Project>
-      <Name>BlogBL</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BlogBL\BlogBL.csproj">
+      <Project>{c299c68b-4de1-4f61-bead-d5b08b81abcd}</Project>
+      <Name>BlogBL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BlogDAL\BlogDAL.csproj">
+      <Project>{82a3db71-969c-438e-923c-89aa8627e467}</Project>
+      <Name>BlogDAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

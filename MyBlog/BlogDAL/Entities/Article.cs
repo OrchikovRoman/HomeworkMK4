@@ -18,7 +18,7 @@ namespace BlogDAL.Entities
 
 
         public int AuthorId { get; set; }
-        public virtual Author Author { get; set; }
+        public Author Author { get; set; }
 
         public ICollection<Tag> Tags { get; set; }
         public ICollection<Category> Categories { get; set; }

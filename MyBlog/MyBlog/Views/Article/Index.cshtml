@@ -34,7 +34,7 @@
                     @Html.DisplayNameFor(model => model.Txt)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.DataArticle)
+                    @Html.DisplayNameFor(model => model.DateArticle)
                 </th>
 
                 <th></th>
@@ -52,9 +52,8 @@
                         @Html.DisplayFor(modelItem => i.Txt)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => i.DataArticle)
+                        @Html.DisplayFor(modelItem => i.DateArticle)
                     </td>
-
                     <td>
                         @Html.ActionLink("Edit", "Edit", new { id = i.Id })
                         @Html.ActionLink("Details", "Details", new { id = i.Id })

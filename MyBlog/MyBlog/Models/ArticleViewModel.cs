@@ -10,14 +10,14 @@ namespace MyBlog.Models
     public class ArticleViewModel
     {
         public int Id { get; set; }
-        [Required]
+        [MinLength(2), Required]
         public string Title { get; set; }
-        [Required]
+        [MinLength(2), Required]
         public string Txt { get; set; }
         public string Img { get; set; }
-       
+
         [DataType(DataType.Date)]
-        public DateTime DataArticle { get; set; }
+        public DateTime DateArticle { get; set; }
        
 
         public int AuthorId { get; set; }

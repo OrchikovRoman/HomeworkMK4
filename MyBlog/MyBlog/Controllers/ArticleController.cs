@@ -24,8 +24,8 @@ namespace MyBlog.Controllers
         // GET: Article
         public ActionResult Index()
         {
-            var articleBL = _service.GetAll().ToList();
-            var articlePL = _mapper.Map<IEnumerable<ArticleViewModel>>(articleBL);
+            var articleBL = _service.GetAll().ToList(); //Normal Date 
+            var articlePL = _mapper.Map<IEnumerable<ArticleViewModel>>(articleBL); //Default Date
             return View(articlePL);
         }
 

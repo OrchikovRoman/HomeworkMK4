@@ -8,46 +8,42 @@ using System.Threading.Tasks;
 
 namespace BlogDAL.Repositories
 {
-    public class GenericRepository<T> : IDisposable, IGenericRepository<T> where T : class
+    public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
-        private readonly MyContext<T> _ctx;
+        public readonly DbContext context;
+        public readonly DbSet<T> dbSet;
         public GenericRepository()
         {
-            _ctx = new MyContext<T>();
+            context = new MyContext();
+            dbSet = context.Set<T>();
         }
-
         public void Create(T item)
         {
-            throw new NotImplementedException();
+            dbSet.Add(item);
+            context.SaveChanges();
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
-        }
-
-        public void Dispose()
-        {
-            throw new NotImplementedException();
+            var entityToDelete = dbSet.Find(id);
+            dbSet.Remove(entityToDelete);
+            context.SaveChanges();
         }
 
         public IEnumerable<T> GetAll()
         {
-            using (_ctx)
-            {
-                var result = _ctx.Get.ToList();
-                return result;
-            };
+            return dbSet.AsNoTracking().ToList();
         }
 
         public T GetById(int id)
         {
-            throw new NotImplementedException();
+            return context.Set<T>().Find(id);
         }
 
         public void Update(T item)
         {
-            throw new NotImplementedException();
+            context.Entry(item).State = EntityState.Modified;
+            context.SaveChanges();
         }
     }
 }

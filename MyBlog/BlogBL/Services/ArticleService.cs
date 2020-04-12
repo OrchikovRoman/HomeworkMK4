@@ -1,6 +1,6 @@
 ﻿using BlogBL.Interfaces;
 using BlogBL.Models;
-using BlogDAL.Models;
+using BlogDAL.Entities;
 using AutoMapper;
 using System;
 using System.Collections.Generic;
@@ -8,13 +8,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BlogDAL.Intrerfaces;
+using BlogDAL.Repositories;
 
 namespace BlogBL.Services
 {
-    public class ArticleService : GenereicService<ArticleModel, Article>, IArticleService
+    public class ArticleService : GenericService<ArticleModel, Article>, IArticleService
     {
-        private readonly IMapper _mapper;
-
+        private IMapper _mapper;
 
         public ArticleService(IGenericRepository<Article> repository, IMapper mapper) : base(repository)
         {
@@ -28,17 +28,17 @@ namespace BlogBL.Services
 
         public override Article Map(ArticleModel blmodel)
         {
-            throw new NotImplementedException();
+            return _mapper.Map<Article>(blmodel);
         }
 
-        public override IEnumerable<ArticleModel> Map(IList<Article> entitiesList)
+        public override IEnumerable<ArticleModel> Map(IList<Article> entities)
         {
-            return _mapper.Map<IEnumerable<ArticleModel>>(entitiesList);
+            return _mapper.Map<IEnumerable<ArticleModel>>(entities);
         }
 
-        public override IEnumerable<Article> Map(IList<ArticleModel> entitiesList)
+        public override IEnumerable<Article> Map(IList<ArticleModel> models)
         {
-            return _mapper.Map<IEnumerable<Article>>(entitiesList);
+            return _mapper.Map<IEnumerable<Article>>(models);
         }
     }
 }

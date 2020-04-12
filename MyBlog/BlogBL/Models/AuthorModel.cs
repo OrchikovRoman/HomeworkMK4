@@ -10,6 +10,6 @@ namespace BlogBL.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public ICollection<ArticleModel> Articles { get; set; }
+        public IEnumerable<ArticleModel> Articles { get; set; }
     }
 }

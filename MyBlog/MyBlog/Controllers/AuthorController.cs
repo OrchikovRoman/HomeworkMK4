@@ -14,59 +14,50 @@ namespace MyBlog.Controllers
     public class AuthorController : Controller
     {
         private readonly IAuthorService _service;
+        private IMapper _mapper;
 
-        public AuthorController()
+        public AuthorController(IAuthorService service, IMapper mapper)
         {
-            _service = new AuthorService();
+            _service = service;
+            _mapper = mapper;
         }
 
-        // GET: Author
         public ActionResult Index()
         {
-            var config = new MapperConfiguration(con =>
-            {
-                con.CreateMap<AuthorModel, AuthorViewModel>();
-                con.CreateMap<ArticleModel, ArticleViewModel>();
-            });
+            var usersBL = _service.GetAll().ToList();
+            var usersPL = _mapper.Map<IEnumerable<AuthorViewModel>>(usersBL);
 
-            var mapper = new Mapper(config);
-
-            var authors = mapper.Map<List<AuthorViewModel>>(_service.GetAuthors());
-
-            ViewBag.Message = "Authors";
-            return View(authors);
+            return View(usersPL);
         }
 
-        // GET: Author/Details/5
+        // GET: User/Details/5
         public ActionResult Details(int id)
         {
-            var config = new MapperConfiguration(con =>
-            {
-                con.CreateMap<AuthorModel, AuthorViewModel>();
-                con.CreateMap<ArticleModel, ArticleViewModel>();
-            });
+            var usersBL = _service.GetById(id);
+            var usersPL = _mapper.Map<AuthorViewModel>(usersBL);
 
-            var mapper = new Mapper(config);
-
-            var author = mapper.Map<AuthorViewModel>(_service.GetAuthors().FirstOrDefault(x => x.Id == id));
-
-            ViewBag.Message = "Author";
-            return View(author);
+            return View(usersPL);
         }
 
-        // GET: Author/Create
+        // GET: User/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Author/Create
+        // POST: User/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(AuthorViewModel model)
         {
             try
             {
-                // TODO: Add insert logic here
+                if (!ModelState.IsValid)
+                {
+                    return View(model);
+                }
+
+                var modelBL = _mapper.Map<AuthorModel>(model);
+                _service.Create(modelBL);
 
                 return RedirectToAction("Index");
             }
@@ -76,19 +67,25 @@ namespace MyBlog.Controllers
             }
         }
 
-        // GET: Author/Edit/5
+        // GET: User/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: Author/Edit/5
+        // POST: User/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, AuthorViewModel model)
         {
             try
             {
-                // TODO: Add update logic here
+                if (!ModelState.IsValid)
+                {
+                    return View(model);
+                }
+
+                var modelBL = _mapper.Map<AuthorModel>(model);
+                _service.Update(modelBL);
 
                 return RedirectToAction("Index");
             }
@@ -98,20 +95,20 @@ namespace MyBlog.Controllers
             }
         }
 
-        // GET: Author/Delete/5
+        // GET: User/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: Author/Delete/5
+        // POST: User/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
             try
             {
                 // TODO: Add delete logic here
-
+                _service.Delete(id);
                 return RedirectToAction("Index");
             }
             catch

@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 
 namespace BlogBL.Interfaces
 {
-    public interface IAuthorService
+    public interface IAuthorService : IGenericService<AuthorModel>
     {
-        IEnumerable<AuthorModel> GetAuthors();
     }
 }

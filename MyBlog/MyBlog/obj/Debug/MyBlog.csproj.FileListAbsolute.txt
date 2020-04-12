@@ -110,3 +110,15 @@ C:\Users\Roman\source\repos\MyBlog\MyBlog\bin\ClassLibrary2.pdb
 C:\Users\Roman\source\repos\MyBlog\MyBlog\bin\ClassLibrary2.dll.config
 C:\Users\Roman\source\repos\MyBlog\MyBlog\bin\ClassLibrary1.pdb
 C:\Users\Roman\source\repos\MyBlog\MyBlog\bin\ClassLibrary1.dll.config
+C:\Users\Roman\source\repos\MyBlog\MyBlog\bin\IdentityManager.dll
+C:\Users\Roman\source\repos\MyBlog\MyBlog\bin\LightInject.Mvc.dll
+C:\Users\Roman\source\repos\MyBlog\MyBlog\bin\LightInject.Web.dll
+C:\Users\Roman\source\repos\MyBlog\MyBlog\bin\LightInject.WebApi.dll
+C:\Users\Roman\source\repos\MyBlog\MyBlog\bin\Owin.dll
+C:\Users\Roman\source\repos\MyBlog\MyBlog\bin\IdentityManager.pdb
+C:\Users\Roman\source\repos\MyBlog\MyBlog\bin\LightInject.Mvc.pdb
+C:\Users\Roman\source\repos\MyBlog\MyBlog\bin\LightInject.Web.pdb
+C:\Users\Roman\source\repos\MyBlog\MyBlog\bin\LightInject.Web.xml
+C:\Users\Roman\source\repos\MyBlog\MyBlog\bin\LightInject.WebApi.pdb
+C:\Users\Roman\source\repos\MyBlog\MyBlog\bin\LightInject.WebApi.xml
+C:\Users\Roman\source\repos\MyBlog\MyBlog\bin\LightInject.WebApi.dll.config

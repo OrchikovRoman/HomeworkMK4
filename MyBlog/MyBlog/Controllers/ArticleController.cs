@@ -8,64 +8,56 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using ClassLibrary2.Models;
 
 namespace MyBlog.Controllers
 {
     public class ArticleController : Controller
     {
         private readonly IArticleService _service;
+        private IMapper _mapper;
 
-        public ArticleController()
+        public ArticleController(IArticleService service, IMapper mapper)
         {
-            _service = new ArticleService();
+            _service = service;
+            _mapper = mapper;
         }
         // GET: Article
         public ActionResult Index()
         {
-            var config = new MapperConfiguration(con => con.CreateMap<ArticleModel, ArticleViewModel>());
-            var mapper = new Mapper(config);
-            var articles = mapper.Map<List<ArticleViewModel>>(_service.GetArticles());
-            ViewBag.Message = "Articles";
-            return View(articles);
+            var articleBL = _service.GetAll().ToList();
+            var articlePL = _mapper.Map<IEnumerable<ArticleViewModel>>(articleBL);
+            return View(articlePL);
         }
 
         // GET: Article/Details/5
         public ActionResult Details(int id)
         {
-            var config = new MapperConfiguration(con =>
-            {
-                con.CreateMap<ArticleModel, ArticleViewModel>();
-                con.CreateMap<AuthorModel, AuthorViewModel>();
-                con.CreateMap<TagModel, TagViewModel>();
-                con.CreateMap<CategoryModel, CategoryViewModel>();
-            });
+            var postsBL = _service.GetById(id);
+            var postsPL = _mapper.Map<ArticleViewModel>(postsBL);
 
-            var mapper = new Mapper(config);
-
-            var artcle = mapper.Map<ArticleViewModel>(_service.GetArticles().FirstOrDefault(x => x.Id == id));
-
-            ViewBag.Message = "Article";
-            return View(artcle);
+            return View(postsPL);
         }
 
-        // GET: Article/Create
+        // GET: Post/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Article/Create
+        // POST: Post/Create
         [HttpPost]
         public ActionResult Create(ArticleViewModel model)
         {
             try
             {
-                // TODO: Add insert logic here
-                var config = new MapperConfiguration(x => x.CreateMap<ArticleViewModel, ArticleModel>());
-                var mapper = new Mapper(config);
-                ArticleModel result = mapper.Map<ArticleViewModel, ArticleModel>(model);
-                _service.Create(result);
+                if (!ModelState.IsValid)
+                {
+                    return View(model);
+                }
+
+                var modelBL = _mapper.Map<ArticleModel>(model);
+                _service.Create(modelBL);
+
                 return RedirectToAction("Index");
             }
             catch
@@ -74,22 +66,26 @@ namespace MyBlog.Controllers
             }
         }
 
-        // GET: Article/Edit/5
+        // GET: Post/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: Article/Edit/5
+        // POST: Post/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, ArticleViewModel article)
+        public ActionResult Edit(int id, ArticleViewModel model)
         {
             try
             {
-                var config = new MapperConfiguration(x => x.CreateMap<ArticleViewModel, ArticleModel>());
-                var mapper = new Mapper(config);
-                ArticleModel res = mapper.Map<ArticleViewModel, ArticleModel>(article);
-                _service.Update(res);
+                if (!ModelState.IsValid)
+                {
+                    return View(model);
+                }
+
+                var modelBL = _mapper.Map<ArticleModel>(model);
+                _service.Update(modelBL);
+
                 return RedirectToAction("Index");
             }
             catch
@@ -98,15 +94,15 @@ namespace MyBlog.Controllers
             }
         }
 
-        // GET: Article/Delete/5
+        // GET: Post/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: Article/Delete/5
+        // POST: Post/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, ArticleViewModel article)
+        public ActionResult Delete(int id, FormCollection collection)
         {
             try
             {

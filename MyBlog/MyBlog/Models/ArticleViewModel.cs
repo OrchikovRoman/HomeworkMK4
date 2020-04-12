@@ -10,19 +10,19 @@ namespace MyBlog.Models
     public class ArticleViewModel
     {
         public int Id { get; set; }
+        [Required]
         public string Title { get; set; }
+        [Required]
         public string Txt { get; set; }
         public string Img { get; set; }
-        [DataType(DataType.DateTime)]
-        [Display(Name = "Input date")]
+       
+        [DataType(DataType.Date)]
         public DateTime DataArticle { get; set; }
        
 
-        public int CategoryId { get; set; }
-        public virtual CategoryViewModel Category { get; set; }
-
         public int AuthorId { get; set; }
-        public virtual AuthorViewModel AuthorViewModel { get; set; }
+        public AuthorViewModel AuthorViewModel { get; set; }
         public IEnumerable<TagViewModel> Tags { get; set; }
+        public IEnumerable<CategoryViewModel> Categories { get; set; }
     }
 }

@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace BlogDAL.Intrerfaces
 {
-    public interface IGenericRepository<T> where T : class
+    public interface IGenericRepository<T> where  T: class
     {
-        T GetById(int id);
-        IEnumerable<T> GetAll();
         void Create(T item);
-        void Delete(int id);
         void Update(T item);
+        IEnumerable<T> GetAll();
+        void Delete(int id);
+        T GetById(int id);
     }
 }

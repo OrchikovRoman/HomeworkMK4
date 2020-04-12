@@ -9,6 +9,5 @@ namespace BlogBL.Interfaces
 {
     public interface IArticleService : IGenericService<ArticleModel>
     {
-
     }
 }

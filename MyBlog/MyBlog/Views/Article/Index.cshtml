@@ -36,7 +36,6 @@
                 <th>
                     @Html.DisplayNameFor(model => model.DateArticle)
                 </th>
-
                 <th></th>
             </tr>
             @foreach (var i in Model)
@@ -46,7 +45,7 @@
                         @Html.DisplayFor(modelItem => i.Title)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => i.Img)
+                        <img src="~/Resources/@i.Img" width="150" height="150" alt="@i.Img">
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => i.Txt)

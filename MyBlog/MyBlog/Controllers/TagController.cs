@@ -40,22 +40,13 @@ namespace MyBlog.Controllers
         [HttpPost]
         public ActionResult Create(TagViewModel model)
         {
-            try
-            {
                 if (!ModelState.IsValid)
                 {
                     return View(model);
                 }
-
                 var modelBL = _mapper.Map<TagModel>(model);
                 _service.Create(modelBL);
-
                 return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
         }
 
         // GET: Post/Edit/5
@@ -68,22 +59,13 @@ namespace MyBlog.Controllers
         [HttpPost]
         public ActionResult Edit(int id, TagViewModel model)
         {
-            try
-            {
                 if (!ModelState.IsValid)
                 {
                     return View(model);
                 }
-
                 var modelBL = _mapper.Map<TagModel>(model);
                 _service.Update(modelBL);
-
                 return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
         }
 
         // GET: Post/Delete/5
@@ -94,17 +76,10 @@ namespace MyBlog.Controllers
 
         // POST: Post/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, TagViewModel model)
         {
-            try
-            {
                 _service.Delete(id);
                 return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
         }
     }
 }

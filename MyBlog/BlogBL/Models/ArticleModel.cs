@@ -17,12 +17,11 @@ namespace BlogBL.Models
         
         public DateTime DateArticle { get; set; }
 
-        public int CategoryModelId { get; set; }
-        public CategoryModel CategoryModel { get; set; }
 
-        public int AuthorModelId { get; set; }
+        public int AuthorId { get; set; }
         public AuthorModel AuthorModel { get; set; }
 
         public IEnumerable<TagModel> Tags { get; set; }
+        public IEnumerable<CategoryModel> Categories { get; set; }
     }
 }

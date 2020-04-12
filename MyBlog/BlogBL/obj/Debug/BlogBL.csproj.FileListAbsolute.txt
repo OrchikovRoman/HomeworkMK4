@@ -67,3 +67,6 @@ C:\Users\Roman\source\repos\MyBlog\BlogBL\obj\Debug\BlogBL.csprojAssemblyReferen
 C:\Users\Roman\source\repos\MyBlog\BlogBL\obj\Debug\BlogBL.csproj.CopyComplete
 C:\Users\Roman\source\repos\MyBlog\BlogBL\obj\Debug\ClassLibrary2.dll
 C:\Users\Roman\source\repos\MyBlog\BlogBL\obj\Debug\ClassLibrary2.pdb
+C:\Users\Roman\source\repos\MyBlog\BlogBL\bin\Debug\ClassLibrary1.dll
+C:\Users\Roman\source\repos\MyBlog\BlogBL\bin\Debug\ClassLibrary1.pdb
+C:\Users\Roman\source\repos\MyBlog\BlogBL\bin\Debug\ClassLibrary1.dll.config

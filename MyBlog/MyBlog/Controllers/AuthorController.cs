@@ -49,22 +49,13 @@ namespace MyBlog.Controllers
         [HttpPost]
         public ActionResult Create(AuthorViewModel model)
         {
-            try
+            if (!ModelState.IsValid)
             {
-                if (!ModelState.IsValid)
-                {
-                    return View(model);
-                }
-
-                var modelBL = _mapper.Map<AuthorModel>(model);
-                _service.Create(modelBL);
-
-                return RedirectToAction("Index");
+                return View(model);
             }
-            catch
-            {
-                return View();
-            }
+            var modelBL = _mapper.Map<AuthorModel>(model);
+            _service.Create(modelBL);
+            return RedirectToAction("Index");
         }
 
         // GET: User/Edit/5
@@ -77,22 +68,13 @@ namespace MyBlog.Controllers
         [HttpPost]
         public ActionResult Edit(int id, AuthorViewModel model)
         {
-            try
+            if (!ModelState.IsValid)
             {
-                if (!ModelState.IsValid)
-                {
-                    return View(model);
-                }
-
-                var modelBL = _mapper.Map<AuthorModel>(model);
-                _service.Update(modelBL);
-
-                return RedirectToAction("Index");
+                return View(model);
             }
-            catch
-            {
-                return View();
-            }
+            var modelBL = _mapper.Map<AuthorModel>(model);
+            _service.Update(modelBL);
+            return RedirectToAction("Index");
         }
 
         // GET: User/Delete/5
@@ -103,18 +85,11 @@ namespace MyBlog.Controllers
 
         // POST: User/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, AuthorViewModel model)
         {
-            try
-            {
-                // TODO: Add delete logic here
-                _service.Delete(id);
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            // TODO: Add delete logic here
+            _service.Delete(id);
+            return RedirectToAction("Index");
         }
     }
 }

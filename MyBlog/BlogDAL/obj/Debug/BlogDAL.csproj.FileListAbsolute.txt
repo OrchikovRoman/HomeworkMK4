@@ -61,7 +61,6 @@ C:\Users\Roman\source\repos\MyBlog\BlogDAL\bin\Debug\LightInject.WebApi.pdb
 C:\Users\Roman\source\repos\MyBlog\BlogDAL\bin\Debug\LightInject.WebApi.xml
 C:\Users\Roman\source\repos\MyBlog\BlogDAL\bin\Debug\LightInject.WebApi.dll.config
 C:\Users\Roman\source\repos\MyBlog\BlogDAL\bin\Debug\System.ValueTuple.xml
-C:\Users\Roman\source\repos\MyBlog\BlogDAL\obj\Debug\BlogDAL.csprojAssemblyReference.cache
 C:\Users\Roman\source\repos\MyBlog\BlogDAL\obj\Debug\ClassLibrary1.Migrations.InitialCreate.resources
 C:\Users\Roman\source\repos\MyBlog\BlogDAL\obj\Debug\BlogDAL.csproj.GenerateResource.cache
 C:\Users\Roman\source\repos\MyBlog\BlogDAL\obj\Debug\BlogDAL.csproj.CopyComplete

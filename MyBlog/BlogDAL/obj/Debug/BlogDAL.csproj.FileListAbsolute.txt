@@ -66,3 +66,4 @@ C:\Users\Roman\source\repos\MyBlog\BlogDAL\obj\Debug\BlogDAL.csproj.GenerateReso
 C:\Users\Roman\source\repos\MyBlog\BlogDAL\obj\Debug\BlogDAL.csproj.CopyComplete
 C:\Users\Roman\source\repos\MyBlog\BlogDAL\obj\Debug\ClassLibrary1.dll
 C:\Users\Roman\source\repos\MyBlog\BlogDAL\obj\Debug\ClassLibrary1.pdb
+C:\Users\Roman\source\repos\MyBlog\BlogDAL\obj\Debug\BlogDAL.csprojAssemblyReference.cache

@@ -3,55 +3,63 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<!DOCTYPE html>
+<html>
 
-<div>
-    <h4>ArticleModel</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div class="jumbotron">
+        <h4>ArticleModel</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Title)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Title)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Img)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Img)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Img)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Img)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Txt)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Txt)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Txt)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Txt)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DateArticle)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.DateArticle)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.DateArticle)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.DateArticle)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.AuthorId)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.AuthorId)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.AuthorId)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.AuthorId)
+            </dd>
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id })
-    @Html.ActionLink("Back to List", "Index")
-</p>
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id })
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

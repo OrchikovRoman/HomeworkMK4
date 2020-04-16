@@ -12,17 +12,17 @@ namespace MyBlog.WebAPI.App_Start
     {
         public WebAutomapperProfile()
         {
-            CreateMap<CategoryModel, CategoryViewModel>().ReverseMap();
-            CreateMap<CategoryViewModel, CategoryModel>().ReverseMap();
+            CreateMap<CategoryModel, CategoryData>().ReverseMap();
+            CreateMap<CategoryData, CategoryModel>().ReverseMap();
 
-            CreateMap<ArticleModel, ArticleViewModel>().ReverseMap();
-            CreateMap<ArticleViewModel, ArticleModel>().ReverseMap();
+            CreateMap<ArticleModel, ArticleData>().ReverseMap();
+            CreateMap<ArticleData, ArticleModel>().ReverseMap();
 
-            CreateMap<TagModel, TagViewModel>().ReverseMap();
-            CreateMap<TagViewModel, TagModel>().ReverseMap();
+            CreateMap<TagModel, TagData>().ReverseMap();
+            CreateMap<TagData, TagModel>().ReverseMap();
 
-            CreateMap<AuthorModel, AuthorViewModel>().ReverseMap();
-            CreateMap<AuthorViewModel, AuthorModel>().ReverseMap();
+            CreateMap<AuthorModel, AuthorData>().ReverseMap();
+            CreateMap<AuthorData, AuthorModel>().ReverseMap();
 
         }
     }

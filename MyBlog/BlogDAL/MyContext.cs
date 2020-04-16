@@ -25,7 +25,7 @@ namespace BlogDAL
         public DbSet<Category> Categories { get; set; }
         public DbSet<Tag> Tags { get; set; }
 
-        class MyContextInit : DropCreateDatabaseAlways<MyContext>
+        class MyContextInit : CreateDatabaseIfNotExists<MyContext>
         {
             protected override void Seed(MyContext context)
             {

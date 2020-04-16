@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using BlogBL.Interfaces;
+using BlogBL.Models;
 using MyBlog.WebAPI.Models;
 using System;
 using System.Collections.Generic;
@@ -21,34 +22,44 @@ namespace MyBlog.WebAPI.Controllers
             _service = service;
             _mapper = mapper;
         }
+        public ArticleController() { }
 
         // GET: api/Article
-        public IEnumerable<ArticleViewModel> Get()
+        public IEnumerable<ArticleData> Get()
         {
             var articlesBL = _service.GetAll();
-            var articlePL = _mapper.Map<IEnumerable<ArticleViewModel>>(articlesBL);
+            var articlePL = _mapper.Map<IEnumerable<ArticleData>>(articlesBL);
             return articlePL;
         }
 
         // GET: api/Article/5
-        public string Get(int id)
+        public ArticleData Get(int id)
         {
-            return "value";
+            var articleBL = _service.GetById(id);
+            var articlePL = _mapper.Map<ArticleData>(articleBL);
+            return articlePL;
         }
 
         // POST: api/Article
-        public void Post([FromBody]string value)
+        public void Post([FromBody]ArticleData article)
         {
+            var articlePL = _mapper.Map<ArticleModel>(article);
+            _service.Create(articlePL);
         }
 
         // PUT: api/Article/5
-        public void Put(int id, [FromBody]string value)
+        [HttpPut]
+        public void Put([FromBody]ArticleData article)
         {
+            var articlePL = _mapper.Map<ArticleModel>(article);
+            _service.Update(articlePL);
         }
 
         // DELETE: api/Article/5
+        [HttpDelete]
         public void Delete(int id)
         {
+            _service.Delete(id);
         }
     }
 }

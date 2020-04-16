@@ -5,6 +5,7 @@ using BlogBL.Services;
 using LightInject;
 using System.Collections.Generic;
 using System.Reflection;
+using System.Web.Http;
 
 namespace MyBlog.WebAPI.App_Start
 {
@@ -13,7 +14,7 @@ namespace MyBlog.WebAPI.App_Start
         public static void Configurate()
         {
             var container = new ServiceContainer();
-            container.RegisterControllers(Assembly.GetExecutingAssembly());
+            container.RegisterApiControllers(Assembly.GetExecutingAssembly());
 
             container.EnablePerWebRequestScope();
 
@@ -28,8 +29,8 @@ namespace MyBlog.WebAPI.App_Start
             container.Register<IAuthorService, AuthorService>();
             container.Register<ICategoryService, CategoryService>();
             container.Register<ITagService, TagService>();
-
-            container.EnableMvc();
+            
+            container.EnableWebApi(GlobalConfiguration.Configuration); 
         }
     }
 }
